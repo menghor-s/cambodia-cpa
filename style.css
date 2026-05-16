@@ -1,0 +1,478 @@
+:root {
+  --primary-green: #06402b;
+  --primary-blue: #1a2a44;
+  --header-bg: #0b4d34;
+  --accent-lime: #c5d92d;
+  --accent-gold: #c5a059;
+  --text-white: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: "Kantumruy Pro", "Khmer OS Battambang", sans-serif;
+  color: var(--text-white);
+  background: linear-gradient(135deg, #043322 0%, #06402b 100%);
+  background-attachment: fixed;
+}
+
+@media (min-width: 1025px) {
+  body,
+  html {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container {
+    flex: 1;
+    overflow: hidden;
+    padding: 0vh 4% 10vh 4%;
+    display: flex;
+    align-items: center;
+  }
+
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 10fr 10fr;
+    /* grid-template-columns: 1.2fr 0.8fr; */
+    gap: 3vw;
+    width: 100%;
+    height: 100%;
+  }
+
+  .left-column,
+  .right-column {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-column {
+    justify-content: flex-start;
+    gap: 2.5vh;
+    padding-top: 4.5vh;
+  }
+
+  .right-column {
+    gap: 2.5vh;
+    justify-content: flex-start;
+    padding-top: 4.5vh;
+  }
+
+  .background-overlay {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8.5vh 5vh;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: var(--header-bg);
+  width: 100%;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-img {
+  height: 55px;
+  width: auto;
+  display: block;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-top {
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.title-bottom {
+  color: var(--accent-lime);
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  margin-top: 3px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.login-btn {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 6px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: "Kantumruy Pro", "Khmer OS Battambang", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: var(--accent-lime);
+  color: var(--primary-green);
+  border-color: var(--accent-lime);
+}
+
+.background-overlay {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.main-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-header h1 {
+  color: var(--accent-lime);
+  font-size: 1.3rem;
+  margin: 0 0 15px 0;
+  line-height: 4;
+}
+
+.main-header p {
+  margin: 15px 0 0 0;
+  font-size: 0.95rem;
+  line-height: 3;
+}
+
+.exam-card {
+  position: relative;
+  border: 2px solid var(--accent-gold);
+  border-radius: 25px;
+  padding: 50px 25px 25px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 600px;
+}
+
+.course-banner {
+  background-color: var(--primary-green);
+  border: 1px solid var(--accent-gold);
+  border-radius: 15px;
+  padding: 6px 20px;
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.course-banner h2 {
+  font-size: 0.95rem;
+  margin: 0;
+  color: #fff;
+}
+
+.exam-info-grid {
+  display: grid;
+  grid-template-columns: 5fr 5fr;
+  gap: 20px 20px;
+  width: 100%;
+}
+
+.info-item {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  border-radius: 15px;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.info-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  border-color: var(--accent-gold);
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  background: rgba(197, 217, 45, 0.15);
+  min-width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(197, 217, 45, 0.3);
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+.info-value {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--accent-lime);
+}
+
+.countdown-box {
+  background: rgba(197, 217, 45, 0.1);
+  border: 1px solid var(--accent-lime);
+  border-radius: 20px;
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.rocket-icon {
+  font-size: 2.2rem;
+  background: rgba(197, 217, 45, 0.15);
+  min-width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  border: 1px solid rgba(197, 217, 45, 0.4);
+}
+
+.countdown-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-text .info-label {
+  font-size: 1.2rem;
+  color: var(--accent-lime);
+  margin-bottom: 0px;
+}
+
+.countdown-timer {
+  font-size: 1.6rem;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(197, 217, 45, 0.6);
+  font-weight: bold;
+}
+
+.requir-demo {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 22px 25px;
+  text-align: left;
+  width: 100%;
+}
+
+.requir-demo h3 {
+  font-size: 1.1rem;
+  color: var(--accent-lime);
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.requir-demo p {
+  margin: 8px 0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.highlight-red {
+  color: #ff4d4d;
+  font-weight: 700;
+}
+
+.bottom-bar {
+  width: 100%;
+  border-top: 2px solid var(--accent-gold);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 0;
+  font-size: 0.95rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scrolling-text {
+  display: inline-block;
+  margin: 0;
+  color: var(--accent-lime);
+  animation: scrollLeft 25s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 20px 5%;
+  }
+
+  .layout-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .right-column {
+    padding-top: 0;
+  }
+
+  .background-overlay,
+  .requir-demo {
+    padding: 20px;
+  }
+
+  .course-banner {
+    white-space: normal;
+    width: 85%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .main-header h1 {
+    font-size: 1.1rem;
+  }
+
+  .exam-info-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .countdown-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+}
+.clock-icon {
+  font-size: 70px;
+  margin: 30px 0 10px;
+  font-size: 5rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: var(--accent-lime);
+}
+
+.countdown-box {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  /* font-family: "Kantumruuy Pro", "Khmer OS Battambang", sans-serif; */
+  max-width: 550px;
+  margin: 0px auto;
+}
+
+.rocket-icon {
+  font-size: 2.5rem;
+  margin-right: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.info-label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.clock-display h1 {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.clock-display p {
+  font-size: 0.85rem;
+  color: #a0a0c0;
+  margin: 0 0 0 0;
+  text-align: center;
+}
+
+/* Smooth floating animation for the rocket */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
